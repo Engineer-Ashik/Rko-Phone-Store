@@ -24,16 +24,35 @@
     </div>
     </header>
 <!-------------------------------------->
-    <main>
+    <main class="bg-slate-100">
         <h2 class=" text-4xl font-semibold text-black text-center">Search your phone</h2>
     <!--Search Bar-->
         <div class="flex justify-center  my-5">
-            <input type="search"  placeholder="Search Your Phone" class="bg-slate-200 text-gray-500 h-10 w-80">
-            <button class="bg-blue-600 text-white font-bold p-2 rounded-md h-10"><i class="fa-solid fa-magnifying-glass"></i> Seacrh</button>
+            <input id="input-search" type="search"  placeholder="Search Your Phone" class="bg-slate-200 text-gray-500 h-10 w-80">
+            <button id="button-search" class="bg-blue-600 text-white font-bold p-2 rounded-md h-10"><i class="fa-solid fa-magnifying-glass"></i> Seacrh</button>
+        </div>
+        <!--Creating div in html for display the output-->
+        <div id="displayContainer">
+            <h1>Display</h1>
+            <div class="card bg-base-100 w-96 shadow-xl">
+                <figure class="px-10 pt-10">
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    alt="Shoes"
+                    class="rounded-xl" />
+                </figure>
+                <div class="card-body items-center text-center">
+                  <h2 class="card-title">Shoes!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions">
+                    <button class="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
         </div>
     </main>
 <!-------------------------------------->
-<footer>
+<footer class="bg-slate-300">
     <div class="flex justify-between">
     <div>
         <h2 class="font-bold text-4xl text-black mb-4">Hot Gadgets</h2>
