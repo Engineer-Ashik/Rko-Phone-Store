@@ -43,11 +43,23 @@ function display(input) {
         </div>
         `
         divContainer.appendChild(phoneCard);
+        loading(false);
+        
     });
     
 }
 
-//Loading symbolic Function
+//Loading Function
+function loading(isValue){
+  const displayContainer = document.getElementById('loadingBar');
+  if(isValue){
+    displayContainer.classList.remove('hidden');
+  }
+  else{
+    displayContainer.classList.add('hidden');
+  }
+}
+
 
 
 //Default calling the Functions
