@@ -1,12 +1,23 @@
 //Checking the Java Script Connection
 console.log("hello ashik");
 
+//Search input Field and Search Button
+document.getElementById('button-search').addEventListener('click', function Searching(){
+    console.log("Search Button clicked");
+    const SearchInput = document.getElementById('input-search');
+    const SearchValue = SearchInput.value ;
+    SearchInput.value= "";
+    console.log(SearchValue);
+    handlefetch(SearchValue);
+});
+
 //Initialize the data fetch
-function handlefetch() {
-    fetch('https://openapi.programming-hero.com/api/phones?search=iphone')
+function handlefetch(SearchText) {
+    fetch(`https://openapi.programming-hero.com/api/phones?search=${SearchText}`)
         .then(res => res.json())
         .then(data => display(data));
 }
+
 //display Function
 function display(input) {
     const phones = input.data; //taking obj data's from the array
@@ -34,8 +45,8 @@ function display(input) {
         `
         divContainer.appendChild(phoneCard);
     });
-
 }
+
 
 
 
