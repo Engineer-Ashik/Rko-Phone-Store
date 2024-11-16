@@ -49,7 +49,7 @@ function display(input) {
             <h2 class="card-title text-slate-900 font-extrabold">${phone.brand}</h2>
             <p class="text-slate-700 font-semibold">${phone.phone_name}</p>
             <div class="card-actions">
-              <button onclick="handleShowDetails('${phone.slug}'); show_details_modal.showModal()" class="btn btn-primary bg-purple-400 hover:bg-green-600 font-bold">Show Details</button>
+              <button onclick="handleShowDetails('${phone.slug}')" class="btn btn-primary bg-purple-400 hover:bg-green-600 font-bold">Show Details</button>
             </div>
           </div>
         </div>
@@ -96,7 +96,24 @@ const handleShowDetails = async(sd) =>{
 }
 //show_details_modal.showModal() Function
 function showDetailsmodal(phone){
+  
   show_details_modal.showModal();
+  /**  const showDetailsContainer = document.getElementById('showDcontainer');
+  const newDetails = document.createElement('div');
+  newDetails.innerHTML = `
+<dialog id="show_details_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">${data.slug}</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn text-white font-semibold bg-red-600 hover:bg-green-700">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+  `
+  showDetailsContainer.appendChild(newDetails); */
 
 }
 //Default calling the Functions
