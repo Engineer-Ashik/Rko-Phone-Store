@@ -26,6 +26,7 @@
 <!-------------------------------------->
     <main class="bg-slate-200">
         <h2 class=" text-4xl font-semibold text-black text-center p-4">Search your phone</h2>
+
         <!--Search Bar-->
         <div class="flex justify-center gap-2">
             <input id="input-search" type="search"  placeholder="Search Your Phone Here ..." class="bg-white h-10 w-80 px-4">
@@ -34,13 +35,17 @@
 
         <!--Loading Spinner-->
         <div class="flex justify-center text-emerald-500 p-4">
-        <span id="loadingBar" class="loading loading-spinner loading-lg hidden"></span>
+            <span id="loadingBar" class="loading loading-spinner loading-lg hidden"> </span>
         </div>
         <!--Creating div in html for display the output-->
         <div class="flex justify-evenly p-6">
             <div id="displayContainer" class="grid grid-cols-1 lg:grid-cols-3 gap-20">
-            <!--<h1>Display</h1>-->
+            
             </div>
+        </div>
+        <!--ShowALL Button-->
+        <div class="flex justify-center p-4">
+            <button id="showAll" class="bg-blue-600 text-white font-bold p-2 rounded-md h-10 hidden">Show ALL</button>
         </div>
     </main>
 <!-------------------------------------->

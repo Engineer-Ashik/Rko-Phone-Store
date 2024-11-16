@@ -8,6 +8,7 @@ document.getElementById('button-search').addEventListener('click', function Sear
     const SearchValue = SearchInput.value ;
     SearchInput.value= "";
     handlefetch(SearchValue);
+    loading(true); //spinner have to add at searching bar not display bar
 });
 
 //Initialize the data fetch
@@ -19,10 +20,10 @@ function handlefetch(SearchText) {
 
 //display Function
 function display(input) {
-    const phones = input.data; //taking obj data's from the array
+    let phones = input.data; //taking obj data's from the array
     const divContainer = document.getElementById('displayContainer');
     divContainer.textContent=''; //clear the previous displayed values here
-  
+    phones = phones.slice(0,2); //have to slice the array before run the loop with array 
     phones.forEach(phone => {
         console.log("PHONES ARE ", phone);
         //console.log("The Length is : ", phones.length);
@@ -43,24 +44,32 @@ function display(input) {
         </div>
         `
         divContainer.appendChild(phoneCard);
-        loading(false);
-        
+
     });
-    
+    loading(false);
 }
 
 //Loading Function
 function loading(isValue){
-  const displayContainer = document.getElementById('loadingBar');
-  if(isValue){
-    displayContainer.classList.remove('hidden');
+  const loadingSpinner = document.getElementById('loadingBar');
+  if(isValue === true){
+    loadingSpinner.classList.remove('hidden');
   }
   else{
-    displayContainer.classList.add('hidden');
+    loadingSpinner.classList.add('hidden');
   }
 }
 
-
+//showALL button Function
+function showALL(condition){
+  const showALL = document.getElementById('showALL');
+  if(condition === true){
+    showALL.classList.remove('hidden');
+  }
+  else{
+    showALL.classList.add('hidden');
+  }
+}
 
 //Default calling the Functions
-handlefetch();
+
