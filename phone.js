@@ -23,7 +23,16 @@ function display(input) {
     let phones = input.data; //taking obj data's from the array
     const divContainer = document.getElementById('displayContainer');
     divContainer.textContent=''; //clear the previous displayed values here
-    phones = phones.slice(0,2); //have to slice the array before run the loop with array 
+    phones = phones.slice(0,6); //have to slice the array before run the loop with array 
+    //Button showALL display or Not functional condition here 
+    if(phones.length >= 6){
+      showALL(true);
+    }
+
+    else{
+      showALL(false);
+    }
+
     phones.forEach(phone => {
         console.log("PHONES ARE ", phone);
         //console.log("The Length is : ", phones.length);
@@ -62,12 +71,12 @@ function loading(isValue){
 
 //showALL button Function
 function showALL(condition){
-  const showALL = document.getElementById('showALL');
+  const showALLButton = document.getElementById('showAll');
   if(condition === true){
-    showALL.classList.remove('hidden');
+    showALLButton.classList.remove('hidden');
   }
   else{
-    showALL.classList.add('hidden');
+    showALLButton.classList.add('hidden');
   }
 }
 
