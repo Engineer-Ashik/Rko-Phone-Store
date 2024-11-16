@@ -47,6 +47,21 @@
         <div class="flex justify-center p-4">
             <button id="showAll" class="bg-blue-600 text-white font-bold p-2 rounded-md h-10 hidden">Show ALL</button>
         </div>
+
+        <!--showDetails container -->
+        <div id="showDcontainer">
+          <dialog id="show_details_modal" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-bold">${data.slug}</h3>
+              <p class="py-4">Press ESC key or click the button below to close</p>
+              <div class="modal-action">
+                <form method="dialog">
+                  <button class="btn text-white font-semibold bg-red-600 hover:bg-green-700">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+            </div>
     </main>
 <!-------------------------------------->
 <footer class="bg-slate-300">

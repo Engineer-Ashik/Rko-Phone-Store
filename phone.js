@@ -2,14 +2,15 @@
 console.log("hello ashik");
 
 //Search input Field and Search Button
+function handleSeacrh(){
 document.getElementById('button-search').addEventListener('click', function Searching(){
-    console.log("Search Button clicked");
     const SearchInput = document.getElementById('input-search');
     const SearchValue = SearchInput.value ;
     SearchInput.value= "";
     handlefetch(SearchValue);
     loading(true); //spinner have to add at searching bar not display bar
 });
+}
 
 //Initialize the data fetch
 function handlefetch(SearchText) {
@@ -23,14 +24,15 @@ function display(input) {
     let phones = input.data; //taking obj data's from the array
     const divContainer = document.getElementById('displayContainer');
     divContainer.textContent=''; //clear the previous displayed values here
-    phones = phones.slice(0,6); //have to slice the array before run the loop with array 
+
+      phones = phones.slice(0,6); //have to slice the array before run the loop with array
+
     //Button showALL display or Not functional condition here 
     if(phones.length >= 6){
-      showALL(true);
+      buttonshowALL(true);
     }
-
     else{
-      showALL(false);
+      buttonshowALL(false);
     }
 
     phones.forEach(phone => {
@@ -47,7 +49,7 @@ function display(input) {
             <h2 class="card-title text-slate-900 font-extrabold">${phone.brand}</h2>
             <p class="text-slate-700 font-semibold">${phone.phone_name}</p>
             <div class="card-actions">
-              <button class="btn btn-primary bg-purple-400 hover:bg-green-600 font-bold">Show Details</button>
+              <button onclick="handleShowDetails('${phone.slug}'); show_details_modal.showModal()" class="btn btn-primary bg-purple-400 hover:bg-green-600 font-bold">Show Details</button>
             </div>
           </div>
         </div>
@@ -58,7 +60,7 @@ function display(input) {
     loading(false);
 }
 
-//Loading Function
+//Loading Spinner Symbol Function
 function loading(isValue){
   const loadingSpinner = document.getElementById('loadingBar');
   if(isValue === true){
@@ -69,16 +71,33 @@ function loading(isValue){
   }
 }
 
-//showALL button Function
-function showALL(condition){
+//showALL button displaying
+function buttonshowALL(condition){
   const showALLButton = document.getElementById('showAll');
   if(condition === true){
     showALLButton.classList.remove('hidden');
+      //showALL button's Function
+      showALLButton.addEventListener('click', function showAll(){
+        console.log("clicked");
+      })
   }
   else{
     showALLButton.classList.add('hidden');
   }
 }
 
-//Default calling the Functions
+//handle ShowDetail Function 
+const handleShowDetails = async(sd) =>{
+    console.log("yes", sd);
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${sd}`);
+    const data = await res.json();
+    const phone = data.data;
+    showDetailsmodal(data);
+}
+//show_details_modal.showModal() Function
+function showDetailsmodal(phone){
+  show_details_modal.showModal();
 
+}
+//Default calling the Functions
+handleSeacrh();
